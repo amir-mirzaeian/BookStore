@@ -21,25 +21,26 @@ public class BookOperationTest {
         String author = "Padma Reddy";
         BigDecimal price = new BigDecimal(75);
         int Quantity = 5;
-        Book book = new Book (title, author, price);
-        this.bookOperation.addToBookStore(book,Quantity);
+        Book book = new Book(title, author, price);
+        this.bookOperation.addToBookStore(book, Quantity);
 
         //Searching for the added book by string
         Map<Book, Integer> bookMap = this.bookOperation.search(1, "Basics of Data Structure");
         Set<Book> bookSet = bookMap.keySet();
         Book targetBook = null;
-        for (Book theBook: bookSet) targetBook = theBook;
+        for (Book theBook : bookSet) targetBook = theBook;
         Assert.assertEquals("Basics of Data Structure", targetBook.getTitle());
     }
+
     @Test
-    public void checkSearch(){
+    public void checkSearch() {
         String title = "title sample";
         String title2 = "Random Sales";
-        Assert.assertEquals(null, this.bookOperation.search(1,title));
+        Assert.assertEquals(null, this.bookOperation.search(1, title));
         Map<Book, Integer> bookMap = this.bookOperation.search(1, "Random Sales");
         Set<Book> bookSet = bookMap.keySet();
         Book targetBook = null;
-        for (Book theBook: bookSet) targetBook = theBook;
+        for (Book theBook : bookSet) targetBook = theBook;
         Assert.assertEquals("Random Sales", targetBook.getTitle());
     }
 }
